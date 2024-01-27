@@ -11,18 +11,14 @@
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="70"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="70"/>
             </Grid.RowDefinitions>
-
-            <StackLayout Grid.Row="0" Orientation="Horizontal">
+            
+            <lvc:CartesianChart Grid.Row="0" ZoomMode="X" Series="{Binding SeriesAA}" LegendPosition="Bottom"></lvc:CartesianChart>
+            <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="Center">
                 <Button HorizontalOptions="Center" Margin="6" Command="{Binding AddItemAACommand}" Text="Выбрать лог файл формата AA" />
             </StackLayout>
-            <lvc:CartesianChart Grid.Row="1" ZoomMode="X" Series="{Binding SeriesAA}" LegendPosition="Right"></lvc:CartesianChart>
-            <!--<StackLayout Grid.Row="2" Orientation="Horizontal">
-                <Button HorizontalOptions="Center" Margin="6" Command="{Binding AddItemTCommand}" Text="Выбрать лог файл формата t" />
-            </StackLayout>
-            <lvc:CartesianChart Grid.Row="3" ZoomMode="X" Series="{Binding SeriesT}" LegendPosition="Right"></lvc:CartesianChart>-->
         </Grid>
     </ContentPage.Content>
 
