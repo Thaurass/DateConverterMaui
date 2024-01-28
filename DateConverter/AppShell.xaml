@@ -14,8 +14,12 @@
                 ContentTemplate="{DataTemplate local:MainPage}"
                 Route="MainPage" />
         </Tab>
-        <Tab Title="Визуализация t файлов">
+        <Tab Title="Визуализация t файлов по первому каналу">
             <ShellContent ContentTemplate="{DataTemplate local:NewPage1}"/>
+        </Tab>
+
+        <Tab Title="Визуализация t файлов по третьему каналу">
+            <ShellContent ContentTemplate="{DataTemplate local:ThirdChannel}"/>
         </Tab>
     </TabBar>
 

@@ -7,24 +7,25 @@ using System.Collections.ObjectModel;
 
 namespace DateConverter 
 {
-    public partial class NewPage1 : ContentPage
+    public partial class ThirdChannel : ContentPage
     {
-        public NewPage1()
+        public ThirdChannel()
         {
             InitializeComponent();
         }
+
     }
 
-    public partial class ViewModelT : ObservableObject
+    public partial class ViewModelT3 : ObservableObject
     {
-        private readonly ObservableCollection<ObservablePoint> _firstChannelStrong;
-        private ObservableCollection<ObservablePoint> _firstChannelWeak;
+        private ObservableCollection<ObservablePoint> _thirdChannelStrong;
+        private ObservableCollection<ObservablePoint> _thirdChannelWeak;
         private List<Tpoint> _pointsT;
 
-        public ViewModelT()
+        public ViewModelT3()
         {
             // Use ObservableCollections to let the chart listen for changes (or any INotifyCollectionChanged). 
-            _firstChannelStrong = new ObservableCollection<ObservablePoint>
+            _thirdChannelStrong = new ObservableCollection<ObservablePoint>
             {
                 // Use the ObservableValue or ObservablePoint types to let the chart listen for property changes 
                 // or use any INotifyPropertyChanged implementation 
@@ -35,13 +36,13 @@ namespace DateConverter
             {
                 new LineSeries<ObservablePoint>
                 {
-                    Name = "Первый усиленный канал",
-                    Values = _firstChannelStrong
+                    Name = "Третий усиленный канал",
+                    Values = _thirdChannelStrong
                 },
                 new LineSeries<ObservablePoint>
                 {
-                    Name = "Первый неусиленный канал",
-                    Values = _firstChannelStrong
+                    Name = "Третий неусиленный канал",
+                    Values = _thirdChannelStrong
                 }
 
             };
@@ -100,7 +101,8 @@ namespace DateConverter
         public void ReadTfile(Stream stream)
         {
             _pointsT = new();
-            _firstChannelWeak = new();
+            _thirdChannelStrong = new();
+            _thirdChannelWeak = new();
             StreamReader sr = new StreamReader(stream);
             string line;
             // Read and display lines from the file until the end of
@@ -125,46 +127,27 @@ namespace DateConverter
             }
 
             SeriesT.Clear();
-            _firstChannelStrong.Clear();
+            _thirdChannelStrong.Clear();
 
             for (int i = 0; i < _pointsT.Count; i++)
             {
-                _firstChannelStrong.Add(new ObservablePoint(_pointsT[i].X, _pointsT[i].FirstChannelStrong));
-                _firstChannelWeak.Add(new ObservablePoint(_pointsT[i].X, _pointsT[i].FirstChannelWeak));
+                _thirdChannelStrong.Add(new ObservablePoint(_pointsT[i].X, _pointsT[i].ThirdChannelStrong));
+                _thirdChannelWeak.Add(new ObservablePoint(_pointsT[i].X, _pointsT[i].ThirdChannelWeak));
             }
-
             SeriesT.Add(new LineSeries<ObservablePoint>
             {
-                Name = "Первый усиленный канал",
-                Values = _firstChannelStrong
+                Name = "Третий усиленный канал",
+                Values = _thirdChannelStrong
             }
             );
             SeriesT.Add(new LineSeries<ObservablePoint>
             {
-                Name = "Первый неусиленный канал",
-                Values = _firstChannelWeak
+                Name = "Третий неусиленный канал",
+                Values = _thirdChannelWeak
             }
             );
         }
-    }
-
-    public class Tpoint
-    {
-        public Tpoint(double _x, int _firstChannelStrong, int _firstChannelWeak, int _thirdChannelStrong, int _thirdChannelWeak)
-        {
-            X = _x;
-
-            FirstChannelStrong = _firstChannelStrong;
-            FirstChannelWeak = _firstChannelWeak;
-            ThirdChannelStrong = _thirdChannelStrong;
-            ThirdChannelWeak = _thirdChannelWeak;
-        }
-
-        public double X { get; }
-        public double FirstChannelStrong { get; }
-        public double FirstChannelWeak { get; }
-        public double ThirdChannelStrong { get; }
-        public double ThirdChannelWeak { get; }
     }
 };
+
 
