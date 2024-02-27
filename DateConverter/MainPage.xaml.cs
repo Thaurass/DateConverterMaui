@@ -46,12 +46,18 @@ namespace DateConverter
                 new LineSeries<ObservablePoint>
                 {
                     Name = "Первый канал",
-                    Values = _firstChannel
+                    Values = _firstChannel,
+                    Fill = null,
+                    GeometrySize = 0,
+                    LineSmoothness = 0
                 },
                 new LineSeries<ObservablePoint>
                 {
                     Name = "Третий канал",
-                    Values = _firstChannel
+                    Values = _firstChannel,
+                    Fill = null,
+                    GeometrySize = 0,
+                    LineSmoothness = 0
                 }
             };
         }
@@ -143,15 +149,21 @@ namespace DateConverter
             }
 
             SeriesAA.Add(new LineSeries<ObservablePoint>
-                {
-                    Name = "Первый канал",
-                    Values = _firstChannel
-                }
+            {
+                Name = "Первый канал",
+                Values = _firstChannel,
+                Fill = null,
+                GeometrySize = 0,
+                LineSmoothness = 0
+            }
             );
             SeriesAA.Add(new LineSeries<ObservablePoint>
             {
                 Name = "Третий канал",
-                Values = _thirdChannel
+                Values = _thirdChannel,
+                Fill = null,
+                GeometrySize = 0,
+                LineSmoothness = 0
             }
             );
         }

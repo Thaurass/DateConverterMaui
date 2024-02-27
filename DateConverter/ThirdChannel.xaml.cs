@@ -37,12 +37,18 @@ namespace DateConverter
                 new LineSeries<ObservablePoint>
                 {
                     Name = "Третий усиленный канал",
-                    Values = _thirdChannelStrong
+                    Values = _thirdChannelStrong,
+                    Fill = null,
+                    GeometrySize = 0,
+                    LineSmoothness = 0
                 },
                 new LineSeries<ObservablePoint>
                 {
                     Name = "Третий неусиленный канал",
-                    Values = _thirdChannelStrong
+                    Values = _thirdChannelStrong,
+                    Fill = null,
+                    GeometrySize = 0,
+                    LineSmoothness = 0
                 }
 
             };
@@ -137,13 +143,19 @@ namespace DateConverter
             SeriesT.Add(new LineSeries<ObservablePoint>
             {
                 Name = "Третий усиленный канал",
-                Values = _thirdChannelStrong
+                Values = _thirdChannelStrong,
+                Fill = null,
+                GeometrySize = 0,
+                LineSmoothness = 0
             }
             );
             SeriesT.Add(new LineSeries<ObservablePoint>
             {
                 Name = "Третий неусиленный канал",
-                Values = _thirdChannelWeak
+                Values = _thirdChannelWeak,
+                Fill = null,
+                GeometrySize = 0,
+                LineSmoothness = 0
             }
             );
         }
